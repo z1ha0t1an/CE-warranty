@@ -805,10 +805,10 @@
             formData.append('source', source || 'direct');
             formData.append('created_at', new Date().toISOString());
 
-            const SUBMIT_URL = ""; // ⚠️ 填入您的 Google Apps Script URL
+            const SUBMIT_URL = "https://script.google.com/macros/s/AKfycbxwNCJpNDCJSS2K5L7kabGo6pgLdG9bBLHnVHmirjSIEZr4VbnLRrGpcq0KCkoHUms8kg/exec"; // Google Apps Script URL
 
             const submitAction = SUBMIT_URL 
-                ? fetch(SUBMIT_URL, { method: 'POST', body: formData })
+                ? fetch(SUBMIT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
                 : new Promise(resolve => setTimeout(resolve, 1500));
 
             submitAction
