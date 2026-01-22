@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate Your Pektaco Warranty</title>
+    <!-- 引入字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Pektaco 品牌配色 - 温暖、可信赖的棕色系或保持简洁黑白 */
+            --primary: #4A3B32;       /* 深棕色，更适合宠物品牌，比纯黑柔和 */
+            --primary-hover: #2C241E;
+            --accent-blue: #D98E5F;   /* 温暖的橙棕色作为点缀，替代之前的蓝色 */
+            --link-blue: #D98E5F;
+            
+            --bg-page: #FDFBF7;       /* 稍微带点暖色的背景 */
+            --bg-card: #FFFFFF;
+            
+            --text-main: #4A3B32;
+            --text-sub: #8C7E74;
+            --border: #E8E1DC;
+            --success: #10B981;
+            
+            --radius-btn: 8px;        /* 圆角稍微大一点，更亲和 */
+            --radius-input: 8px;
+            
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* 顶部通栏 */
+        .top-banner {
+            background-color: var(--accent-blue);
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 100;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center; 
+            border-bottom: 1px solid transparent;
+            z-index: 100;
+            position: relative;
+            background: rgba(253, 251, 247, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        /* 布局容器 */
+        .container {
+            width: 100%;
+            max-width: 520px; 
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+            position: relative;
+            z-index: 50; 
+        }
+
+        /* Header Logo */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        /* Logo 样式调整 */
+        .logo img {
+            display: block;
+            height: 60px; /* 控制高度 */
+            width: auto;
+        }
+
+        /* 主卡片 */
+        .card {
+            background: var(--bg-card);
+            padding: 0; 
+        }
+
+        /* 状态 A: 激活页 */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .headline {
+            font-family: var(--font-heading);
+            font-size: 32px; /* 稍微调小一点，防止换行 */
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .sub-headline {
+            font-size: 16px;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        /* 进度条 */
+        .progress-wrapper {
+            margin: 20px 0 32px;
+            text-align: center;
+        }
+        .progress-bar-bg {
+            height: 6px;
+            background: #E8E1DC;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 8px;
+            width: 120px; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .progress-fill {
+            height: 100%;
+            width: 50%;
+            background: var(--accent-blue); /* 使用品牌色 */
+            border-radius: 3px;
+        }
+        .progress-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* 表单样式 */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .input-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-input);
+            font-size: 16px;
+            font-family: var(--font-body);
+            transition: all 0.2s;
+            outline: none;
+            background: #FAFAFA;
+            color: var(--primary);
+        }
+        .form-input:focus {
+            border-color: var(--accent-blue);
+            background: #FFF;
+            box-shadow: 0 0 0 1px var(--accent-blue);
+        }
+        .form-input.error {
+            border-color: #EF4444;
+            background-color: #FEF2F2;
+        }
+        
+        .error-msg {
+            font-size: 12px;
+            color: #EF4444;
+            margin-top: 6px;
+            display: none;
+        }
+
+        /* Checkbox */
+        .checkbox-group {
+            display: flex;
+            align-items: center; 
+            gap: 12px;
+            margin: 24px 0;
+            font-size: 14px;
+            color: var(--text-sub);
+            line-height: 1.4;
+            cursor: pointer;
+        }
+        .checkbox-group input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--accent-blue);
+        }
+
+        /* 按钮 */
+        .btn-primary {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-btn);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover); 
+            transform: translateY(-1px);
+        }
+        .btn-primary:disabled {
+            background: #999;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* State B: 成功页 */
+        #state-b {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.5s ease-out;
+            padding-top: 20px;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 32px;
+        }
+
+        .upsell-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 32px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 20;
+            box-shadow: 0 20px 40px rgba(74, 59, 50, 0.1); 
+        }
+        
+        .upsell-tag {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .upsell-title {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        
+        .upsell-desc {
+            font-size: 15px;
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        /* ----------------------------------------------------
+           悬浮评论卡片样式 (Absolute Positioning)
+           ---------------------------------------------------- */
+        
+        #review-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .review-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: 0 8px 24px rgba(74, 59, 50, 0.08); /* 暖色阴影 */
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            min-width: 300px;
+            max-width: 360px;
+            position: absolute;
+            z-index: 5;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+        }
+        
+        .visible .review-card {
+            opacity: 1;
+        }
+
+        /* 开发模式拖拽样式 */
+        .draggable {
+            cursor: grab !important;
+            user-select: none;
+            pointer-events: auto !important;
+            box-shadow: 0 0 0 2px var(--accent-blue), 0 20px 50px rgba(0,0,0,0.2) !important;
+            z-index: 100 !important;
+            animation: none !important;
+            transition: none !important;
+        }
+        .draggable:active {
+            cursor: grabbing !important;
+        }
+
+        @keyframes float-random {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-12px); }
+        }
+
+        /* 移动端 - 隐藏大部分 */
+        @media (max-width: 800px) {
+            .review-card {
+                display: none !important;
+            }
+            .review-card[data-mobile-visible="true"] {
+                display: flex !important;
+            }
+        }
+
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #eee;
+            flex-shrink: 0;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        
+        .review-content h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin: 0 0 4px;
+            color: var(--primary);
+        }
+        .review-content p {
+            font-size: 12px;
+            color: var(--text-sub);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .btn-instagram {
+            width: 100%;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+            color: white;
+            padding: 16px;
+            border-radius: var(--radius-btn);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: opacity 0.2s;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-instagram:hover {
+            opacity: 0.9;
+        }
+
+        .secondary-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--text-sub);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .secondary-link:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        /* 动画 Spinner */
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Confetti Canvas */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* 底部版权 */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 12px;
+            color: #9CA3AF;
+            position: relative;
+            z-index: 50;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Top Banner -->
+    <div class="top-banner">
+        Hydrate Your Furry Friends with Love 🐾
+    </div>
+
+    <!-- 2. Navbar with Logo -->
+    <nav class="navbar">
+        <div class="logo">
+            <!-- 替换为您的 Pektaco Logo 链接，这里假设您下载了图片并命名为 pektaco-logo.png，或者使用在线链接 -->
+            <img 
+                src="./logo.png" 
+                alt="Pektaco"
+                style="height: 120px; width: auto;"
+            >
+            <!-- 备注：为了演示方便，我使用了占位，您需要将您的图片放在项目根目录并引用 -->
+        </div>
+    </nav>
+
+    <!-- Review Wrapper for Floating Cards -->
+    <div id="review-wrapper">
+        <!-- JS will populate cards here -->
+    </div>
+
+    <div class="container">
+        
+        <div class="card">
+            
+            <!-- STATE A: 激活表单 -->
+            <div id="state-a">
+                <div class="hero-section">
+                    <h1 class="headline">Activate Your Pektaco Warranty</h1>
+                    <p class="sub-headline">Get 12-Month Coverage & VIP Support for your Pet Water Fountain.</p>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-wrapper">
+                    <div class="progress-bar-bg">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">Step 1 / 2</div>
+                </div>
+
+                <form id="activation-form">
+                    <!-- Order ID -->
+                    <div class="form-group">
+                        <label class="input-label" for="order-id">Order ID</label>
+                        <input type="text" id="order-id" class="form-input" placeholder="Check your Amazon/Shopify order email" autocomplete="off">
+                        <div class="error-msg" id="error-order">Order ID must be at least 5 digits.</div>
+                    </div>
+
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label class="input-label" for="user-name">Full Name</label>
+                        <input type="text" id="user-name" class="form-input" placeholder="Your Name">
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label class="input-label" for="user-email">Email Address <span style="color:red">*</span></label>
+                        <input type="email" id="user-email" class="form-input" placeholder="name@example.com">
+                        <div class="error-msg" id="error-email">Please enter a valid email address.</div>
+                    </div>
+
+                    <!-- Checkbox -->
+                    <label class="checkbox-group" for="terms-check">
+                        <input type="checkbox" id="terms-check" required>
+                        <span>I agree to the <a href="#" style="color:inherit;text-decoration:underline;">Privacy Policy</a> & Terms.</span>
+                    </label>
+
+                    <!-- CTA Button -->
+                    <button type="submit" class="btn-primary" id="btn-submit">
+                        <span class="spinner"></span>
+                        <span class="btn-text">ACTIVATE WARRANTY</span>
+                    </button>
+                </form>
+            </div>
+            <!-- End State A -->
+
+
+            <!-- STATE B: 成功与转化 -->
+            <div id="state-b">
+                <div class="success-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                
+                <h2 class="headline">Activation Successful!</h2>
+                <p class="sub-headline">Your Pektaco fountain is now fully covered.</p>
+
+                <!-- Upsell Card -->
+                <div class="upsell-card">
+                    <span class="upsell-tag">Paw-some Invite 🐾</span>
+                    <h3 class="upsell-title">Wait! One more thing...</h3>
+                    <p class="upsell-desc">
+                        Become a <strong>Pektaco Product Tester</strong>. <br>
+                        Test our newest pet gear for FREE.
+                    </p>
+                    
+                    <a href="https://www.instagram.com/encool_official/" target="_blank" class="btn-instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                        Follow Us to Apply
+                    </a>
+                    
+                    <p style="margin-top:12px; font-size: 12px; color: #999;">
+                        We select testers from our Instagram followers.
+                    </p>
+                </div>
+
+                <a href="#" class="secondary-link">No thanks, return to homepage</a>
+            </div>
+            <!-- End State B -->
+
+        </div>
+    </div>
+    
+    <footer class="footer">
+        © 2026 Pektaco. All rights reserved.
+    </footer>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <script>
+        // 1. 获取元素
+        const form = document.getElementById('activation-form');
+        const stateA = document.getElementById('state-a');
+        const stateB = document.getElementById('state-b');
+        const btnSubmit = document.getElementById('btn-submit');
+        const btnText = btnSubmit.querySelector('.btn-text');
+        const spinner = btnSubmit.querySelector('.spinner');
+        const reviewWrapper = document.getElementById('review-wrapper');
+
+        // Inputs
+        const orderInput = document.getElementById('order-id');
+        const emailInput = document.getElementById('user-email');
+        const termsCheck = document.getElementById('terms-check');
+        
+        // Errors
+        const errorOrder = document.getElementById('error-order');
+        const errorEmail = document.getElementById('error-email');
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('source');
+        const isDevMode = urlParams.get('dev') === 'true';
+
+        // =================================================================================
+        // ⭐ CARD POSITIONS CONFIGURATION ⭐
+        // =================================================================================
+        let cardPositions = [
+            { id: 1, top: '18%', left: '2%', animationDelay: '0s' },
+            { id: 2, top: '38%', left: '5%', animationDelay: '1.2s' },
+            { id: 3, top: '22%', left: '22%', animationDelay: '2.5s', mobileVisible: true },
+            { id: 4, top: '18%', left: 'auto', right: '2%', animationDelay: '0.5s' },
+            { id: 5, top: '38%', left: 'auto', right: '5%', animationDelay: '3s' },
+            { id: 6, top: '22%', left: 'auto', right: '22%', animationDelay: '1.8s', mobileVisible: true },
+            { id: 7, top: 'auto', bottom: '18%', left: '5%', animationDelay: '0.8s' },
+            { id: 8, top: 'auto', bottom: '2%', left: '15%', animationDelay: '2.2s' },
+            { id: 9, top: 'auto', bottom: '32%', left: '2%', animationDelay: '3.5s' },
+            { id: 10, top: 'auto', bottom: '18%', left: 'auto', right: '5%', animationDelay: '1.5s' },
+            { id: 11, top: 'auto', bottom: '2%', left: 'auto', right: '15%', animationDelay: '4s' },
+            { id: 12, top: 'auto', bottom: '32%', left: 'auto', right: '2%', animationDelay: '2.8s' }
+        ];
+
+        // 🐶 宠物评论数据 (Pet Reviews)
+        // 使用 place.dog 和 placekitten 获取随机可爱的猫狗图片
+        const reviews = [
+            { name: "Luna's Mom", text: "My cat usually hates water fountains, but she loves this one! It's whisper quiet.", type: "cat" },
+            { name: "Max the Golden", text: "Finally, a fountain that doesn't get slimy. The filters work amazing!", type: "dog" },
+            { name: "Bella's Dad", text: "Activated my warranty in seconds. The support team helped me set it up.", type: "dog" },
+            { name: "Charlie", text: "Woof! (Translation: Best water ever!)", type: "dog" },
+            { name: "Oliver's Human", text: "The stainless steel top is so easy to clean. Highly recommend for multiple cats.", type: "cat" },
+            { name: "Cooper", text: "I love the running water stream. Keeps me drinking all day!", type: "dog" },
+            { name: "Lucy", text: "My kidneys are happy! My vet said I'm much more hydrated now.", type: "cat" },
+            { name: "Daisy's Mom", text: "Got a free toy for testing the new model. Pektaco rocks!", type: "dog" },
+            { name: "Rocky", text: "Sturdy enough that I can't knock it over. My owner is pleased.", type: "dog" },
+            { name: "Milo", text: "Fresh water 24/7. What more can a kitty ask for?", type: "cat" },
+            { name: "Teddy", text: "The night light is cool, I can find my water in the dark.", type: "dog" },
+            { name: "Chloe", text: "Super fast shipping and great packaging. 5 stars!", type: "cat" }
+        ];
+
+        // 获取随机宠物头像链接
+        function getPetAvatar(type, index) {
+            // 使用 reliable placeholder services
+            if (type === 'dog') {
+                return `https://placedog.net/100/100?id=${index + 1}`; 
+            } else {
+                return `https://placekitten.com/100/100?image=${index + 1}`;
+            }
+        }
+
+        function createReviews() {
+            reviewWrapper.innerHTML = '';
+            
+            for(let i=0; i<reviews.length; i++) {
+                const review = reviews[i];
+                const pos = cardPositions[i];
+                if (!pos) continue;
+
+                const card = document.createElement('div');
+                card.className = `review-card`;
+                card.id = `card-${i}`;
+                
+                // Apply Styles from Config
+                if (pos.top && pos.top !== 'auto') card.style.top = pos.top;
+                if (pos.bottom && pos.bottom !== 'auto') card.style.bottom = pos.bottom;
+                if (pos.left && pos.left !== 'auto') card.style.left = pos.left;
+                if (pos.right && pos.right !== 'auto') card.style.right = pos.right;
+                
+                // Animation settings
+                if (!isDevMode) {
+                    card.style.animationName = 'float-random';
+                    card.style.animationDuration = '7s';
+                    card.style.animationIterationCount = 'infinite';
+                    card.style.animationDirection = 'alternate';
+                    card.style.animationTimingFunction = 'ease-in-out';
+                    card.style.animationDelay = pos.animationDelay;
+                }
+
+                if (pos.mobileVisible) {
+                    card.setAttribute('data-mobile-visible', 'true');
+                }
+                
+                // 简单的图片哈希，为了让每次显示的图片稍微不一样但固定
+                // 注意：placekitten 和 placedog 有时不稳定，如果挂了可以换成 picsum 加上 keywords
+                // 备选方案：`https://source.unsplash.com/100x100/?${review.type}` (unsplash source 已停用)
+                // 使用 picsum 作为备选
+                const imgSrc = `https://loremflickr.com/100/100/${review.type}?lock=${i}`;
+
+                card.innerHTML = `
+                    <img src="${imgSrc}" class="review-avatar" alt="${review.name}">
+                    <div class="review-content">
+                        <h4>${review.name}</h4>
+                        <p>"${review.text}"</p>
+                    </div>
+                `;
+                reviewWrapper.appendChild(card);
+
+                if (isDevMode) {
+                    makeDraggable(card, i);
+                }
+            }
+        }
+
+        function makeDraggable(el, index) {
+            el.classList.add('draggable');
+            let isDragging = false;
+            let startX, startY, initialLeft, initialTop;
+
+            el.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                el.style.zIndex = 1000;
+                const rect = el.getBoundingClientRect();
+                startX = e.clientX;
+                startY = e.clientY;
+                const style = window.getComputedStyle(el);
+                initialLeft = parseInt(style.left, 10);
+                initialTop = parseInt(style.top, 10);
+                e.preventDefault();
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                el.style.left = `${initialLeft + dx}px`;
+                el.style.top = `${initialTop + dy}px`;
+                el.style.right = 'auto';
+                el.style.bottom = 'auto';
+            });
+
+            window.addEventListener('mouseup', () => {
+                if (!isDragging) return;
+                isDragging = false;
+                el.style.zIndex = 5;
+                const rect = el.getBoundingClientRect();
+                const parentRect = reviewWrapper.getBoundingClientRect();
+                const topPct = ((rect.top - parentRect.top) / parentRect.height * 100).toFixed(1) + '%';
+                const leftPct = ((rect.left - parentRect.left) / parentRect.width * 100).toFixed(1) + '%';
+                cardPositions[index].top = topPct;
+                cardPositions[index].left = leftPct;
+                cardPositions[index].right = 'auto';
+                cardPositions[index].bottom = 'auto';
+                console.clear();
+                console.log("✅ New Configuration (Copy this):");
+                console.log(JSON.stringify(cardPositions, null, 4));
+            });
+        }
+
+        // 2. 表单提交逻辑
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            errorOrder.style.display = 'none';
+            orderInput.classList.remove('error');
+            errorEmail.style.display = 'none';
+            emailInput.classList.remove('error');
+
+            let isValid = true;
+            if (orderInput.value.length < 5) {
+                errorOrder.style.display = 'block';
+                orderInput.classList.add('error');
+                isValid = false;
+            }
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+                errorEmail.style.display = 'block';
+                emailInput.classList.add('error');
+                isValid = false;
+            }
+            if (!termsCheck.checked) {
+                alert("Please agree to the terms.");
+                isValid = false;
+            }
+            if (!isValid) return;
+
+            btnSubmit.disabled = true;
+            btnText.textContent = "VERIFYING...";
+            spinner.style.display = "block";
+
+            // 数据提交逻辑
+            const formData = new FormData();
+            formData.append('order_id', orderInput.value);
+            formData.append('email', emailInput.value);
+            formData.append('name', document.getElementById('user-name').value);
+            formData.append('source', source || 'direct');
+            formData.append('created_at', new Date().toISOString());
+
+            const SUBMIT_URL = ""; // ⚠️ 填入您的 Google Apps Script URL
+
+            const submitAction = SUBMIT_URL 
+                ? fetch(SUBMIT_URL, { method: 'POST', body: formData })
+                : new Promise(resolve => setTimeout(resolve, 1500));
+
+            submitAction
+                .then(() => {
+                    stateA.style.display = 'none';
+                    stateB.style.display = 'block';
+                    createReviews();
+                    setTimeout(() => {
+                        reviewWrapper.classList.add('visible');
+                    }, 50);
+                    fireConfetti();
+                    if(isDevMode) {
+                        console.log("🔧 Developer Mode Enabled");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert("Submission failed. Please check your internet connection.");
+                    btnSubmit.disabled = false;
+                    btnText.textContent = "ACTIVATE WARRANTY";
+                    spinner.style.display = "none";
+                });
+        });
+
+        // 4. Confetti 实现
+        function fireConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const pieces = [];
+            const numberOfPieces = 150;
+            // Pektaco 品牌色 Confetti: 棕色、橙色、绿色、浅黄
+            const colors = ['#4A3B32', '#D98E5F', '#10B981', '#FCD34D', '#FFFFFF'];
+
+            for (let i = 0; i < numberOfPieces; i++) {
+                pieces.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    rotation: Math.random() * 360,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    size: Math.random() * 8 + 4,
+                    speed: Math.random() * 4 + 2
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                pieces.forEach((p) => {
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rotation * Math.PI / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                    ctx.restore();
+                    p.y += p.speed;
+                    p.rotation += 2;
+                    if (p.y > canvas.height) {
+                        p.y = -20;
+                    }
+                });
+                requestAnimationFrame(draw);
+            }
+            draw();
+            setTimeout(() => {
+                canvas.style.opacity = '0';
+                canvas.style.transition = 'opacity 1s';
+            }, 4000);
+        }
+
+        window.addEventListener('resize', () => {
+            const canvas = document.getElementById('confetti-canvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
