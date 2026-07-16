@@ -769,7 +769,7 @@
             formData.append('platform', platform);
             formData.append('created_at', new Date().toISOString());
 
-            const SUBMIT_URL = "https://script.google.com/macros/s/AKfycbyF7NSgDyB1MgOO9Bar3XFBskvJ1C0JVN8l51VexvS-kExHAKSShFkwsXqsfoN_cdkW/exec"; // Google Apps Script URL
+            const SUBMIT_URL = "https://script.google.com/macros/s/AKfycbxCWvEhFAWyijYxix7lutDtpj5yDs-aAcazuKV2nTLYjMwW2itsGJ3qvGTmT_OX55kR/exec"; // Google Apps Script URL
 
             const submitAction = SUBMIT_URL 
                 ? fetch(SUBMIT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
