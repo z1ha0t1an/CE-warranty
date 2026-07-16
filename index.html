@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activate Your comfortexpression Warranty</title>
+    <title>Activate Your Comfort Expression Warranty</title>
     <!-- 引入字体 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,7 @@
     
     <style>
         :root {
-            /* comfortexpression 品牌配色 - 温暖、可信赖的棕色系或保持简洁黑白 */
+            /* Comfort Expression 品牌配色 - 温暖、可信赖的棕色系或保持简洁黑白 */
             --primary: #4A3B32;       /* 深棕色，更适合宠物品牌，比纯黑柔和 */
             --primary-hover: #2C241E;
             --accent-blue: #D98E5F;   /* 温暖的橙棕色作为点缀，替代之前的蓝色 */
@@ -95,6 +95,8 @@
             display: block;
             height: 60px; /* 控制高度 */
             width: auto;
+            max-width: calc(100vw - 40px);
+            object-fit: contain;
         }
 
         /* 主卡片 */
@@ -402,30 +404,6 @@
             line-height: 1.5;
         }
 
-        .btn-instagram {
-            width: 100%;
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
-            color: white;
-            padding: 16px;
-            border-radius: var(--radius-btn);
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: opacity 0.2s;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-        }
-        
-        .btn-instagram:hover {
-            opacity: 0.9;
-        }
-
         .secondary-link {
             display: block;
             margin-top: 20px;
@@ -477,19 +455,16 @@
 
     <!-- 1. Top Banner -->
     <div class="top-banner">
-        Hydrate Your Furry Friends with Love 🐾
+        Cozy Comfort for Your Furry Friends 🐾
     </div>
 
     <!-- 2. Navbar with Logo -->
     <nav class="navbar">
         <div class="logo">
-            <!-- 替换为您的 comfortexpression Logo 链接，这里假设您下载了图片并命名为 comfortexpression-logo.png，或者使用在线链接 -->
             <img 
                 src="./logo.png" 
-                alt="comfortexpression"
-                style="height: 120px; width: auto;"
+                alt="Comfort Expression logo"
             >
-            <!-- 备注：为了演示方便，我使用了占位，您需要将您的图片放在项目根目录并引用 -->
         </div>
     </nav>
 
@@ -505,8 +480,8 @@
             <!-- STATE A: 激活表单 -->
             <div id="state-a">
                 <div class="hero-section">
-                    <h1 class="headline">Activate Your comfortexpression Warranty</h1>
-                    <p class="sub-headline">Get 12-Month Coverage & VIP Support for your Pet Water Fountain.</p>
+                    <h1 class="headline">Activate Your Comfort Expression Warranty</h1>
+                    <p class="sub-headline">Get 12-Month Coverage & VIP Support for your Dog Bed.</p>
                 </div>
 
                 <!-- Progress Bar -->
@@ -563,28 +538,15 @@
                 </div>
                 
                 <h2 class="headline">Activation Successful!</h2>
-                <p class="sub-headline">Your comfortexpression fountain is now fully covered.</p>
+                <p class="sub-headline">Your Comfort Expression dog bed is now fully covered.</p>
 
                 <!-- Upsell Card -->
                 <div class="upsell-card">
                     <span class="upsell-tag">Paw-some Invite 🐾</span>
                     <h3 class="upsell-title">Wait! One more thing...</h3>
                     <p class="upsell-desc">
-                        Become a <strong>comfortexpression Product Tester</strong>. <br>
+                        Become a <strong>Comfort Expression Product Tester</strong>. <br>
                         Test our newest pet gear for FREE.
-                    </p>
-                    
-                    <a href="https://www.instagram.com/encool_official/" target="_blank" class="btn-instagram">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                        Follow Us to Apply
-                    </a>
-                    
-                    <p style="margin-top:12px; font-size: 12px; color: #999;">
-                        We select testers from our Instagram followers.
                     </p>
                 </div>
 
@@ -596,7 +558,7 @@
     </div>
     
     <footer class="footer">
-        © 2026 comfortexpression. All rights reserved.
+        © 2026 Comfort Expression. All rights reserved.
     </footer>
 
     <canvas id="confetti-canvas"></canvas>
@@ -645,18 +607,18 @@
         // 🐶 宠物评论数据 (Pet Reviews)
         // 使用 place.dog 和 placekitten 获取随机可爱的猫狗图片
         const reviews = [
-            { name: "Luna's Mom", text: "My cat usually hates water fountains, but she loves this one! It's whisper quiet.", type: "cat" },
-            { name: "Max the Golden", text: "Finally, a fountain that doesn't get slimy. The filters work amazing!", type: "dog" },
-            { name: "Bella's Dad", text: "Activated my warranty in seconds. The support team helped me set it up.", type: "dog" },
-            { name: "Charlie", text: "Woof! (Translation: Best water ever!)", type: "dog" },
-            { name: "Oliver's Human", text: "The stainless steel top is so easy to clean. Highly recommend for multiple cats.", type: "cat" },
-            { name: "Cooper", text: "I love the running water stream. Keeps me drinking all day!", type: "dog" },
-            { name: "Lucy", text: "My kidneys are happy! My vet said I'm much more hydrated now.", type: "cat" },
-            { name: "Daisy's Mom", text: "Got a free toy for testing the new model. comfortexpression rocks!", type: "dog" },
-            { name: "Rocky", text: "Sturdy enough that I can't knock it over. My owner is pleased.", type: "dog" },
-            { name: "Milo", text: "Fresh water 24/7. What more can a kitty ask for?", type: "cat" },
-            { name: "Teddy", text: "The night light is cool, I can find my water in the dark.", type: "dog" },
-            { name: "Chloe", text: "Super fast shipping and great packaging. 5 stars!", type: "cat" }
+            { name: "Luna's Mom", text: "Luna curled up on her new bed the moment we unpacked it. She looks so cozy!", type: "dog" },
+            { name: "Max the Golden", text: "Plenty of room for Max to stretch out, and it still holds its shape beautifully.", type: "dog" },
+            { name: "Bella's Dad", text: "Activated my warranty in seconds. The support team made everything easy.", type: "dog" },
+            { name: "Charlie", text: "Woof! (Translation: Best nap spot ever!)", type: "dog" },
+            { name: "Oliver's Human", text: "Oliver settles down faster at bedtime now. He clearly loves his new bed.", type: "dog" },
+            { name: "Cooper", text: "Soft, comfortable, and roomy enough for Cooper to sleep in any position.", type: "dog" },
+            { name: "Lucy's Mom", text: "Lucy sleeps through the night and wakes up ready for her morning walk.", type: "dog" },
+            { name: "Daisy's Mom", text: "Got a free toy for testing the new model. Comfort Expression rocks!", type: "dog" },
+            { name: "Rocky", text: "Rocky has claimed this as his favorite place in the house. My floors are finally free!", type: "dog" },
+            { name: "Milo's Dad", text: "Milo loves curling up against the edge. It has become his everyday nap spot.", type: "dog" },
+            { name: "Teddy", text: "I moved the bed to the living room, and Teddy followed it immediately.", type: "dog" },
+            { name: "Chloe's Mom", text: "Super fast shipping, great packaging, and one very happy pup. 5 stars!", type: "dog" }
         ];
 
         // 获取随机宠物头像链接
@@ -844,7 +806,7 @@
 
             const pieces = [];
             const numberOfPieces = 150;
-            // comfortexpression 品牌色 Confetti: 棕色、橙色、绿色、浅黄
+            // Comfort Expression 品牌色 Confetti: 棕色、橙色、绿色、浅黄
             const colors = ['#4A3B32', '#D98E5F', '#10B981', '#FCD34D', '#FFFFFF'];
 
             for (let i = 0; i < numberOfPieces; i++) {
